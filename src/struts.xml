@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name="struts.ui.theme" value="simple" />
+   <constant name="struts.objectFactory" value="spring" />
+   <constant name="struts.devMode" value="true"></constant>
+   <constant name="struts.multipart.maxSize" value="900000000"></constant>
+   <package name="default" extends="struts-default">
+   		<action name="Index" class="com.ideabobo.action.IndexAction" method="index">
+   			<result name="login">/web/pages/Index/login.jsp</result>
+        	<result name="index">/web/pages/Index/index.jsp</result>
+   		</action>
+   		<action name="User" class="com.ideabobo.action.UserAction">
+   			<result name="success">/web/pages/User/user.jsp</result>
+   			<result name="login">/web/pages/Index/login.jsp</result>
+        	<result name="index">/web/pages/Index/index.jsp</result>
+   		</action>
+   		<action name="Posts" class="com.ideabobo.action.PostsAction">
+   			<result name="success">/web/pages/Posts/posts.jsp</result>
+   		</action>
+		<action name="Good" class="com.ideabobo.action.GoodAction">
+   			<result name="success">/web/pages/Good/good.jsp</result>
+            <result name="goodshop">/web/pages/Good/goodshop.jsp</result>
+   			<result name="type">/web/pages/Good/type.jsp</result>
+   		</action>
+   		<action name="Bill" class="com.ideabobo.action.BillAction">
+   			<result name="success">/web/pages/Bill/bill.jsp</result>
+   		</action>
+   		<action name="Vip" class="com.ideabobo.action.VipAction">
+   			<result name="success">/web/pages/Vip/vip.jsp</result>
+   		</action>
+   		<action name="Shop" class="com.ideabobo.action.ShopAction">
+   			<result name="success">/web/pages/Shop/shop.jsp</result>
+   		</action>
+   		<action name="Dingzuo" class="com.ideabobo.action.DingzuoAction">
+   			<result name="success">/web/pages/Dingzuo/dingzuo.jsp</result>
+   		</action>
+   		<action name="Notice" class="com.ideabobo.action.NoticeAction">
+   			<result name="success">/web/pages/Notice/notice.jsp</result>
+   		</action>
+   		<action name="Wehall" class="com.ideabobo.action.WehallAction">
+   			<result name="success">/web/pages/Wehall/wehall.jsp</result>
+   		</action>
+   		<action name="Wechat" class="com.ideabobo.action.WechatAction" method="wechat">
+   		</action>
+
+         <action name="Upload" class="com.ideabobo.util.UploadAction" method="upload">
+   			
+         </action>		
+   </package>
+</struts>

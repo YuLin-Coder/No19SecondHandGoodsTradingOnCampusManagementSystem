@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>微信工具</title>
+    <link rel="stylesheet" type="text/css"
+          href="__PUBLIC__/easyui/themes/<{$_COOKIE.easyuiThemeName|default='gray'}>/easyui.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="__PUBLIC__/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="__PUBLIC__/easyui/themes/all.css"/>
+    <script type="text/javascript" src="__PUBLIC__/easyui/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="__PUBLIC__/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript"
+            src="__PUBLIC__/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/json2.js"></script>
+    <script type="text/javascript">
+        function getAccessToken(){
+            var appid = $("#appid").val();
+            var secret = $("#secret").val();
+            $.post("__APP__/WTool/getAccessToken",{appid:appid,secret:secret},function(data){
+                var result = JSON.parse(data);
+                if(result.access_token){
+                    $("#accessToken").val(result.access_token);
+                }else{
+                    $("#accessToken").val(data);
+                }
+            });
+        }
+
+        function getMenu(){
+            var accessToken = $("#accessToken").val();
+            $.post("__APP__/WTool/getMenu",{accessToken:$.trim(accessToken)},function(data){
+                var result = JSON.parse(data);
+                if(result.menu){
+                    $("#menudata").val(JSON.stringify(result.menu));
+                }else{
+                    $("#menudata").val(data);
+                }
+
+            });
+        }
+
+        function createMenu(){
+            var accessToken = $("#accessToken").val();
+            var menudata = $("#menudata").val();
+            $.post("__APP__/WTool/createMenu",{accessToken:$.trim(accessToken),menudata: $.trim(menudata)},function(data){
+                alert(data);
+
+            });
+        }
+
+        function getUserInfo(){
+            var accessToken = $("#accessToken").val();
+            var openid = $("#openid").val();
+            $.post("__APP__/WTool/getUserInfo",{accessToken:$.trim(accessToken),openid: $.trim(openid)},function(data){
+                alert(data);
+            });
+        }
+    </script>
+</head>
+<body class="easyui-layout">
+<div region="north" border="false" style="height: 3px; overflow: hidden"></div>
+<div region="west" border="false" style="width: 3px;"></div>
+<div region="east" border="false" style="width: 3px;"></div>
+<div region="south" border="false" style="height: 3px; overflow: hidden"></div>
+<div region="center" border="false">
+    <div id="main" class="easyui-layout" fit="true" style="width: 100%; height: 100%;">
+        <div region="center" border="false" style="padding: 3px 0px 0px 0px; overflow: hidden">
+            <div id="managerDialog" class="easyui-dialog" title="微信工具" style="width: 750px; height: 450px;" toolbar="#dlg-toolbar" buttons="#dlg-button" resizable="true" modal="true" closed='false'>
+                <div class="easyui-panel" style="border: 0" title="菜单工具">
+                <table cellpadding="1" cellspacing="1" class="tb_custom1" style="width: 99%">
+                    <tr>
+                        <th width="10%">
+                            appid
+                        </th>
+                        <td width="40%">
+                            <input id="appid" style="width: 70%" value="wxc24338235984cd8e"/>
+                        </td>
+                        <th width="10%">
+                            secret
+                        </th>
+                        <td width="40%">
+                            <input style="width: 70%" id="secret" value="aab7c7bd8e7f46317603651b2a422ec8"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            accessToken
+                        </th>
+                        <td colspan="3">
+                            <textarea id="accessToken" style="width: 100%;height: 100px;">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            菜单数据
+                        </th>
+                        <td colspan="3">
+                            <textarea id="menudata" style="width: 100%;height: 200px;">
+
+                            </textarea>
+                        </td>
+                    </tr>
+
+                </table>
+                </div>
+                <div style="border: 0" class="easyui-panel" title="获取用户信息">
+                <table cellpadding="1" title="获取用户信息" cellspacing="1" class="tb_custom1" style="width: 99%">
+                    <tr>
+                        <th width="10%">
+                            openid
+                        </th>
+                        <td width="40%">
+                            <input id="openid" style="width: 70%" value="ooyJOuNV8FHiCBzlIPGR8yBjL2Mg"/>
+                        </td>
+                        <th width="10%">
+
+                        </th>
+                        <td width="40%">
+                            <a href="#" class="easyui-linkbutton" onclick="getUserInfo();">获取用户信息</a>
+                        </td>
+                    </tr>
+
+
+                </table>
+               </div>
+            </div>
+            <div id="dlg-button">
+                <a href="#" class="easyui-linkbutton" onclick="getAccessToken();">获取accessToken</a>
+                <a href="#" class="easyui-linkbutton" onclick="getMenu();">获取菜单数据</a>
+                <a href="#" class="easyui-linkbutton" onclick="createMenu();">创建菜单</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

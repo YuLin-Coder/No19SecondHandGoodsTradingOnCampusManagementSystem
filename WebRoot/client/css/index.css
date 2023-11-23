@@ -1,0 +1,76 @@
+#goods{
+    padding: 0;
+}
+.gitem {
+    width: 152px;
+    float: left;
+    text-align: center;
+    margin: 10px 0 0 10px;
+    list-style: none;
+
+}
+
+.gitem div{
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+    position: relative;
+    border: 1px #aaaaaa solid;
+    background-color: #ffffff;
+    text-align: left;
+}
+.gitem h2{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    color: #111111;
+}
+.gitem p{
+    font-size: 10px;
+    color: #980000;
+    padding: 0;
+    margin: 5px;
+}
+.gitem img{
+    width: 100%;
+    height: 100px;
+}
+
+
+
+.starcontainer2{
+    width: 175px;
+    height: 35px;
+    position: absolute;
+    left: 100px;
+    top: 5px;
+}
+
+
+.pingjiastar2{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 35px;
+    width: 175px;
+    background-image: url('../images/detail_star_open.png');
+    z-index: 0;
+}
+
+.pingjiastarup2{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 35px;
+    background-image: url('../images/detail_star_full.png');
+    z-index: 1;
+}
+
+.pingjiastarclick{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 35px;
+    width: 175px;
+    z-index: 999;
+}

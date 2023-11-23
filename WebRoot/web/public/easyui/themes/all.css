@@ -1,0 +1,61 @@
+/* main styles
+body {
+	margin:0;
+	padding:0;
+	background:#f5fafe;
+	}
+
+.buttons input {margin:0 0 6px 0;}
+.tb_custom1{font-size:12px;text-decoration:none;margin:3px;background-color:#cbcbcb;color:#2b2b2b;}
+.tb_search{font-size:12px;text-decoration:none;margin:3px;background-color:#cbcbcb;color:#2b2b2b;border-spacing:0;}
+.searchpb5{margin-bottom:5px}
+.tb_custom1 th,.tb_wikic th{background-color:#F4F4FF;border-top:1px solid white;border-left:1px solid white;}
+.tb_custom1 td,.tb_search td,.tb_wikic td{background-color:#fff;}
+.tb_custom1 td{line-height:22px;padding:3px;text-align:left; vertical-align:top;padding:5px}
+.tb_custom1 th{line-height:22px;padding:3px;text-align:right; vertical-align:top;padding:5px}
+.alRight{text-align:right}
+.alLeft{text-align:left}
+.alCenter{text-align:center}
+.btnBar{text-align:right;margin:0 3px 3px 0}
+.tb_wikic{font-size:12px;text-decoration:none;margin:3px;background-color:#cbcbcb;color:#2b2b2b;margin:5px 5px 5px 5px}
+.tb_wikic .wikititle, .tb_wikic .wikistitle{background-color:#F4F4FF;font-size:15px;font-weight:bolder;font-size:12px;}
+.tb_wikic .wikistitle{text-align:right;margin-right:5px;}
+.tb_wikic td{padding:5px}
+.datagrid-view a{color:#2b2b2b;text-decoration:none}
+.datagrid-view a:hover{color:#2b2b2b;text-decoration:underline}
+*/
+
+.tb_custom1 {
+	border-collapse: collapse;
+	font-size:12px;text-decoration:none;margin:3px;
+}
+
+.tb_custom1 th {
+	text-align: right;
+	border-bottom: 1px dotted #ccc;
+	padding: 5px;
+}
+
+.tb_custom1 td {
+	text-align: left;
+	border-bottom: 1px dotted #ccc;
+	padding: 5px;
+}
+
+
+
+.tb_search {
+	font-size:12px;text-decoration:none;margin:3px;
+	border-collapse: collapse;
+}
+
+.tb_search th {
+	text-align: right;
+	padding: 5px;
+}
+
+.tb_search td {
+	text-align: left;
+	padding: 5px;
+}
+
